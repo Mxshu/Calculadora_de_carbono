@@ -43,7 +43,7 @@
         <div class="calculator__field">
           <input id="manual-distance" name="manual-distance" type="checkbox" class="calculator__checkbox">
           <label for="manual-distance" class="calculator__label">Inserir distância manualmente</label>
-          <p class="calculator__help">Desmarque para permitir que a distância seja preenchida automaticamente. Marque para editar manualmente.</p>
+          <p class="calculator__help">Desmarque para preencher a distância automaticamente. Marque para editar manualmente.</p>
         </div>
 
         <fieldset class="calculator__transport" aria-label="Modo de transporte">
@@ -87,6 +87,14 @@
               <span class="calculator__transport-card">
                 <span class="calculator__transport-emoji">🚚</span>
                 <span class="calculator__transport-label">Caminhão</span>
+              </span>
+            </label>
+
+            <label for="transport-boat" class="calculator__transport-option">
+              <input id="transport-boat" type="radio" name="transport" value="boat">
+              <span class="calculator__transport-card">
+                <span class="calculator__transport-emoji">🚢</span>
+                <span class="calculator__transport-label">Barco</span>
               </span>
             </label>
           </div>
