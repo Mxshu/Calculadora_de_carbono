@@ -1,9 +1,9 @@
 /* ===========================
-   CSS CUSTOM PROPERTIES (VARIABLES)
+   PROPRIEDADES CUSTOMIZADAS CSS (VARIÁVEIS)
    =========================== */
 
 :root {
-  /* Eco-friendly color palette */
+  /* Paleta de cores eco-friendly */
   --primary: #10b981;
   --secondary: #059669;
   --accent: #34d399;
@@ -11,13 +11,13 @@
   --warning: #f59e0b;
   --info: #3b82f6;
 
-  /* Text and background colors */
+  /* Cores de texto e fundo */
   --text: #112937;
   --text-light: #6b7280;
   --bg: #f0fdf4;
   --white: #ffffff;
 
-  /* Spacing scale (0.5rem to 3rem) */
+  /* Escala de espaçamento (0.5rem a 3rem) */
   --spacing-s: 0.5rem;
   --spacing-m: 1rem;
   --spacing-lg: 1.5rem;
@@ -25,28 +25,28 @@
   --spacing-2xl: 2.5rem;
   --spacing-3xl: 3rem;
 
-  /* Border radius */
+  /* Raio da borda */
   --radius: 0.5rem;
   --radius-lg: 1rem;
 
-  /* Shadows */
+  /* Sombras */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 /* ===========================
-   BASE STYLES
+   ESTILOS BASE
    =========================== */
 
-/* Universal reset: remove default margins and paddings */
+/* Reset universal: remove margens e preenchimentos padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling with eco-gradient background */
+/* Estilos do corpo com fundo em gradiente eco */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
@@ -55,7 +55,7 @@ body {
   line-height: 1.6;
 }
 
-/* Container: centered layout with max-width */
+/* Contêiner: layout centralizado com largura máxima */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -63,15 +63,15 @@ body {
 }
 
 /* ===========================
-   UTILITY CLASSES
+   CLASSES UTILITÁRIAS
    =========================== */
 
-/* Hidden class: completely remove element from view */
+/* Classe oculta: remove completamente o elemento da visualização */
 .hidden {
   display: none !important;
 }
 
-/* Section title: large heading style */
+/* Título da seção: estilo de cabeçalho grande */
 .section-title {
   font-size: 1.875rem;
   font-weight: 700;
@@ -80,7 +80,7 @@ body {
 }
 
 /* ===========================
-   HEADER STYLES
+   ESTILOS DO CABEÇALHO
    =========================== */
 
 .calculator__header {
@@ -91,7 +91,7 @@ body {
   border-radius: var(--radius-lg);
 }
 
-/* Main title with primary color and large font size */
+/* Título principal com cor primária e tamanho de fonte grande */
 .calculator__title {
   font-size: 2rem;
   font-weight: 700;
@@ -99,27 +99,27 @@ body {
   margin-bottom: var(--spacing-m);
 }
 
-/* Small tag for the "2" in CO2 */
+/* Tag pequena para o "2" em CO2 */
 .calculator__title small {
   font-size: 0.8em;
   vertical-align: super;
 }
 
-/* Subtitle in gray, smaller font */
+/* Subtítulo em cinza, fonte menor */
 .calculator__subtitle {
   font-size: 1.125rem;
   color: var(--text-light);
 }
 
 /* ===========================
-   MAIN FORM STYLING
+   ESTILO DO FORMULÁRIO PRINCIPAL
    =========================== */
 
 .calculator {
   padding: var(--spacing-m);
 }
 
-/* Form container: white card with shadow and rounded corners */
+/* Contêiner de formulário: cartão branco com sombra e cantos arredondados */
 .calculator__form {
   background-color: var(--white);
   border-radius: var(--radius-lg);
@@ -128,12 +128,12 @@ body {
   margin-bottom: var(--spacing-2xl);
 }
 
-/* Form field group with margin between inputs */
+/* Grupo de campo de formulário com margem entre entradas */
 .calculator__field {
   margin-bottom: var(--spacing-lg);
 }
 
-/* Label styling: bold, block display, margin below */
+/* Estilo de rótulo: negrito, exibição em bloco, margem abaixo */
 .calculator__label {
   display: block;
   font-weight: 600;
@@ -141,7 +141,7 @@ body {
   color: var(--text);
 }
 
-/* Text/number input styling: full width, padding, border with focus state */
+/* Estilo de entrada de texto/número: largura total, preenchimento, borda com estado de foco */
 .calculator__input {
   width: 100%;
   padding: var(--spacing-m);
@@ -152,21 +152,21 @@ body {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Input focus state: primary color border and subtle shadow */
+/* Estado de foco de entrada: borda com cor primária e sombra sutil */
 .calculator__input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-/* Helper text: smaller, gray, positioned below inputs */
+/* Texto auxiliar: menor, cinza, posicionado abaixo das entradas */
 .calculator__help {
   font-size: 0.875rem;
   color: var(--text-light);
   margin-top: var(--spacing-s);
 }
 
-/* Checkbox styling */
+/* Estilo da caixa de seleção */
 .calculator__checkbox {
   margin-right: var(--spacing-s);
   cursor: pointer;
@@ -176,10 +176,10 @@ body {
 }
 
 /* ===========================
-   TRANSPORT MODE GRID
+   GRADE DE MODO DE TRANSPORTE
    =========================== */
 
-/* Transport fieldset styling */
+/* Estilo do fieldset de transporte */
 .calculator__transport {
   border: 2px solid #e5e7eb;
   border-radius: var(--radius);
@@ -187,14 +187,14 @@ body {
   margin-bottom: var(--spacing-lg);
 }
 
-/* Legend styling for fieldset */
+/* Estilo da legenda para fieldset */
 .calculator__legend {
   font-weight: 600;
   color: var(--text);
   padding: 0 var(--spacing-m);
 }
 
-/* Transport grid container: 4 columns on desktop, 2 on mobile */
+/* Contêiner de grade de transporte: 4 colunas no desktop, 2 no celular */
 .calculator__transport-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -202,7 +202,7 @@ body {
   margin-top: var(--spacing-m);
 }
 
-/* Transport option label as clickable card */
+/* Rótulo de opção de transporte como cartão clicável */
 .calculator__transport-option {
   display: flex;
   flex-direction: column;
@@ -217,19 +217,19 @@ body {
   background-color: var(--white);
 }
 
-/* Hover effect: lift with transform and shadow */
+/* Efeito de passar o mouse: levantamento com transformação e sombra */
 .calculator__transport-option:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* Hide actual radio input */
+/* Ocultar entrada de rádio real */
 .calculator__transport-option input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
 
-/* Checked state: primary border, light primary background using adjacent sibling selector */
+/* Estado verificado: borda primária, fundo primário claro usando seletor de irmão adjacente */
 .calculator__transport-option input[type="radio"]:checked + .calculator__transport-option,
 .calculator__transport-option input[type="radio"]:checked ~ .calculator__transport-option {
   border-color: var(--primary);
@@ -237,12 +237,12 @@ body {
   background-color: rgba(16, 185, 129, 0.05);
 }
 
-/* Ensure checked state works correctly */
+/* Garantir que o estado verificado funcione corretamente */
 .calculator__transport-option input[type="radio"]:checked {
   border-color: var(--primary);
 }
 
-/* Target label when radio is checked (using general sibling) */
+/* Rótulo de destino quando o rádio está marcado (usando irmão geral) */
 .calculator__transport-option input[type="radio"]:checked + label,
 input[type="radio"][name="transport"]:checked + .calculator__transport-option {
   border-color: var(--primary);
@@ -250,24 +250,24 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
   border-width: 2px;
 }
 
-/* Emoji icon styling in transport options */
+/* Estilo de ícone emoji nas opções de transporte */
 .calculator__transport-option::before {
   font-size: 2rem;
   margin-bottom: var(--spacing-s);
 }
 
 /* ===========================
-   BUTTON STYLING
+   ESTILO DO BOTÃO
    =========================== */
 
-/* Actions container */
+/* Contêiner de ações */
 .calculator__actions {
   display: flex;
   gap: var(--spacing-m);
   margin-top: var(--spacing-2xl);
 }
 
-/* Submit button: full width, primary color, white text */
+/* Botão enviar: largura total, cor primária, texto branco */
 .calculator__submit {
   flex: 1;
   padding: var(--spacing-m) var(--spacing-2xl);
@@ -281,19 +281,19 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Button hover state: secondary color with lift effect */
+/* Estado de passar o mouse do botão: cor secundária com efeito de levantamento */
 .calculator__submit:hover:not(:disabled) {
   background-color: var(--secondary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* Button active (pressed) state */
+/* Estado ativo (pressionado) do botão */
 .calculator__submit:active:not(:disabled) {
   transform: translateY(0);
 }
 
-/* Button disabled state: gray background, not-allowed cursor */
+/* Estado desativado do botão: fundo cinza, cursor não permitido */
 .calculator__submit:disabled {
   background-color: #d1d5db;
   cursor: not-allowed;
@@ -301,10 +301,10 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 }
 
 /* ===========================
-   RESULTS SECTIONS
+   SEÇÕES DE RESULTADOS
    =========================== */
 
-/* Results section styling */
+/* Estilo da seção de resultados */
 .calculator__results,
 .calculator__comparison,
 .calculator__carbon-credite {
@@ -316,10 +316,10 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 }
 
 /* ===========================
-   LOADING SPINNER
+   SPINNER DE CARREGAMENTO
    =========================== */
 
-/* Spinner animation class for loading states */
+/* Classe de animação spinner para estados de carregamento */
 .spinner {
   display: inline-block;
   width: 40px;
@@ -330,7 +330,7 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
   animation: spin 1s linear infinite;
 }
 
-/* Keyframes for spinning animation */
+/* Quadros-chave para animação de rotação */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -338,7 +338,7 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 }
 
 /* ===========================
-   FOOTER STYLES
+   ESTILOS DO RODAPÉ
    =========================== */
 
 .calculator__footer {
@@ -356,17 +356,17 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 }
 
 /* ===========================
-   RESPONSIVE DESIGN
+   DESIGN RESPONSIVO
    =========================== */
 
-/* Mobile styles (default above) */
+/* Estilos móveis (padrão acima) */
 @media (max-width: 767px) {
-  /* Transport grid: 2 columns on mobile */
+  /* Grade de transporte: 2 colunas em dispositivo móvel */
   .calculator__transport-grid {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  /* Reduce padding on smaller screens */
+  /* Reduzir preenchimento em telas menores */
   .calculator__form {
     padding: var(--spacing-lg);
   }
@@ -375,35 +375,35 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
     padding: var(--spacing-lg);
   }
 
-  /* Reduce title size on mobile */
+  /* Reduzir tamanho do título em dispositivo móvel */
   .calculator__title {
     font-size: 1.5rem;
   }
 }
 
-/* Desktop styles */
+/* Estilos de desktop */
 @media (min-width: 768px) {
-  /* Transport grid: 4 columns on desktop */
+  /* Grade de transporte: 4 colunas no desktop */
   .calculator__transport-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Container padding on desktop */
+  /* Preenchimento do contêiner no desktop */
   .container {
     padding: var(--spacing-lg) var(--spacing-2xl);
   }
 
-  /* Increase form padding on desktop */
+  /* Aumentar o preenchimento do formulário no desktop */
   .calculator__form {
     padding: var(--spacing-3xl);
   }
 }
 
 /* ===========================
-   ACCESSIBILITY
+   ACESSIBILIDADE
    =========================== */
 
-/* Visually hidden class for screen readers */
+/* Classe visualmente oculta para leitores de tela */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -416,7 +416,7 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
   border-width: 0;
 }
 
-/* Focus visible for keyboard navigation */
+/* Foco visível para navegação por teclado */
 .calculator__input:focus-visible,
 .calculator__submit:focus-visible,
 .calculator__transport-option:focus-visible {

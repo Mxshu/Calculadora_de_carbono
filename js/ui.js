@@ -1,26 +1,26 @@
 /**
- * ui.js - Interface manipulation and user interaction handlers
- * Handles toggling readonly state for distance input based on checkbox
+ * ui.js - Manipulação de interface e manipuladores de interação do usuário
+ * Manipula a alternância do estado readonly para entrada de distância com base na caixa de seleção
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Get references to the checkbox and distance input
+  // Obter referências à caixa de seleção e entrada de distância
   const manualDistanceCheckbox = document.getElementById('manual-distance');
   const distanceInput = document.getElementById('distance');
 
-  // Function to update the readonly state of the distance input
+  // Função para atualizar o estado readonly da entrada de distância
   function toggleDistanceInput() {
     if (manualDistanceCheckbox.checked) {
-      // If checkbox is checked, unlock the input (remove readonly)
+      // Se a caixa de seleção estiver marcada, desbloqueie a entrada (remova readonly)
       distanceInput.removeAttribute('readonly');
       distanceInput.focus();
     } else {
-      // If checkbox is unchecked, lock the input (add readonly)
+      // Se a caixa de seleção estiver desmarcada, bloqueie a entrada (adicione readonly)
       distanceInput.setAttribute('readonly', '');
-      distanceInput.value = ''; // Clear the value when switching back to auto
+      distanceInput.value = ''; // Limpar o valor ao alternar de volta para automático
     }
   }
 
-  // Listen for checkbox changes
+  // Ouvir as mudanças da caixa de seleção
   manualDistanceCheckbox.addEventListener('change', toggleDistanceInput);
 });
