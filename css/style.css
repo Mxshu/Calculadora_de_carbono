@@ -191,6 +191,22 @@ body {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
+/* Estado visual para inputs somente leitura (locked) - aparência acinzentada */
+.calculator__input[readonly],
+.calculator__input[readonly]:not(:focus) {
+  background-color: #f3f4f6; /* cinza claro */
+  color: #6b7280; /* texto mais suave */
+  border-color: #d1d5db; /* borda levemente acinzentada */
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
+/* Força contraste quando o usuário foca explicitamente (e.g. via keyboard) */
+.calculator__input[readonly]:focus {
+  box-shadow: none;
+  outline: 2px dashed rgba(107, 114, 128, 0.2);
+}
+
 /* Texto auxiliar: menor, cinza, posicionado abaixo das entradas */
 .calculator__help {
   font-size: 0.875rem;
