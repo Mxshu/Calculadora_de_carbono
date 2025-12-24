@@ -2,8 +2,7 @@
    PROPRIEDADES CUSTOMIZADAS CSS (VARIÁVEIS)
    =========================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Finger+Paint&display=swap');
 
 :root {
   /* Paleta de cores eco-friendly */
