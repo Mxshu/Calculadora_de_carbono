@@ -28,6 +28,7 @@ const CONFIG = {
   EMISSION_FACTORS: {
     bicycle: 0,        // Bicicleta: zero emissão (transporte limpo)
     car: 0.12,         // Carro: 0.12 kg CO2/km (aproximadamente)
+    plane: 0.20,       // Avião: 0.20 kg CO2/km (estimativa por passageiro)
     bus: 0.089,        // Ônibus: 0.089 kg CO2/km (mais eficiente)
     truck: 0.96        // Caminhão: 0.96 kg CO2/km (maior emissão)
   },
@@ -60,6 +61,12 @@ const CONFIG = {
       label: 'Caminhão',
       emoji: '🚚',
       color: '#8b5cf6'  // Roxo
+    }
+    ,
+    plane: {
+      label: 'Avião',
+      emoji: '✈️',
+      color: '#0284c7' // Azul-céu
     }
   },
 
