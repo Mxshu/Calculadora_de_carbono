@@ -338,8 +338,8 @@ const UI = {
     // Adicionar box de dica
     html += `
         <div class="comparison__tip">
-          <strong>💡 Dica:</strong> Escolha um modo de transporte com menor emissão de CO<sub>2</sub> 
-          para reduzir seu impacto ambiental. A bicicleta é a opção mais sustentável!
+          <strong>💡 Dica:</strong> Sempre opte por modos de transporte com menor emissão de CO<sub>2</sub> 
+          para reduzir seu impacto ambiental. A bicicleta e o ônibus são as opções mais sustentáveis!
         </div>
       </div>
     `;
