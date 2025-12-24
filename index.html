@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>🍃 Calculadora de Emissão de CO<small>2</small></title>
+  </head>
+  <body>
+    <!--A Header é a parte superior da página que apresenta o título e uma breve descrição do site. -->
+    <header>
+      <h1>🍃 Calculadora de Emissão de CO<small>2</small></h1>
+      <p>Calcule as emissões estimadas de CO<small>2</small> para deslocamentos entre cidades.</p>
+    </header>
+
+    <!--A Main é a parte principal da página que contém o formulário e os resultados da calculadora. -->
+    <main>
+        <!--O form é o elemento que permite ao usuário inserir dados para calcular a emissão de CO2. -->
+      <form id="calculator-form" aria-labelledby="calc-title">
+        <!--O h2 é o título do formulário. -->
+        <h2 id="calc-title" class="visually-hidden">Formulário da Calculadora</h2>
+
+        <!--O div é o elemento que agrupa os campos de entrada do formulário. -->
+        <div>
+          <label for="origin">Origem</label>
+          <input id="origin" name="origin" list="cities-list" placeholder="Digite a cidade de origem" autocomplete="on">
+        </div>
+
+        <div>
+          <label for="destination">Destino</label>
+          <input id="destination" name="destination" list="cities-list" placeholder="Digite a cidade de destino" autocomplete="on">
+        </div>
+
+        <!--O datalist é o elemento que contém as opções de cidades para os campos de origem e destino. -->
+        <datalist id="cities-list">
+          <!-- Opções podem ser preenchidas dinamicamente por `js/routes-data.js` -->
+        </datalist>
+
+        <div>
+          <label for="distance">Distância (km)</label>
+          <input id="distance" name="distance" type="number" readonly placeholder="Auto preenchida">
+        </div>
+
+        <div>
+          <input id="manual-distance" name="manual-distance" type="checkbox">
+          <label for="manual-distance">Inserir distância manualmente</label>
+        </div>
+
+        <!--O fieldset é o elemento que agrupa os campos de seleção do modo de transporte. -->
+        <fieldset>
+          <legend>Modo de transporte</legend>
+          <div class="transport-grid">
+            <label for="transport-bicycle">
+                <!--O input é o elemento que permite ao usuário selecionar o modo de transporte. -->
+              <input id="transport-bicycle" type="radio" name="transport" value="bicycle">
+              🚲 Bicicleta
+            </label>
+
+            <label for="transport-car">
+              <input id="transport-car" type="radio" name="transport" value="car" checked>
+              🚗 Carro
+            </label>
+
+            <label for="transport-bus">
+              <input id="transport-bus" type="radio" name="transport" value="bus">
+              🚌 Ônibus
+            </label>
+
+            <label for="transport-truck">
+              <input id="transport-truck" type="radio" name="transport" value="truck">
+              🚚 Caminhão
+            </label>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Calcular Emissão</button>
+        </div>
+      </form>
+
+      <!--A section é o elemento que contém os resultados da calculadora. -->
+      <section id="results" class="hidden" aria-live="polite"> <!-- O polite é usado para informar ao leitor de tela que o conteúdo pode mudar dinamicamente -->
+        <div id="results-content"></div>
+      </section>
+
+      <section id="comparison" class="hidden"> <!--O hidden é a classe CSS que esconde o elemento. -->
+        <div id="comparison-content"></div>
+      </section>
+
+      <section id="carbon-credite" class="hidden">
+        <div id="carbon-credits-content"></div>
+      </section>
+    </main>
+
+    <!--O Footer é a parte inferior da página que apresenta informações sobre o desenvolvedor e o projeto. -->
+    <footer>
+      <p>Desenvolvido por Brenda Góes para a DIO | Projeto GitHub Copilot</p>
+    </footer>
+
+    <!--O Script é o elemento que carrega os arquivos JavaScript da calculadora. -->
+    <script src="js/routes-data.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
