@@ -417,9 +417,61 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 }
 
 /* Foco visível para navegação por teclado */
-.calculator__input:focus-visible,
-.calculator__submit:focus-visible,
-.calculator__transport-option:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+.calculator__transport-option {
+  position: relative;
+  display: block;
+  padding: 0;
+}
+
+/* Cartão interno que apresenta o emoji e o rótulo (visual) */
+.calculator__transport-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  background-color: var(--white);
+}
+
+/* Hover effect on the visual card */
+.calculator__transport-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hide actual radio input but keep it accessible */
+.calculator__transport-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Quando o radio estiver marcado, estilizar o cartão com o gradiente (verde->rosa similar ao fundo) */
+.calculator__transport-option input[type="radio"]:checked + .calculator__transport-card {
+  /* Destacar apenas a borda com um gradiente (mantendo o fundo branco) */
+  border: 3px solid transparent; /* espaço para a borda gradiente */
+  background-image: linear-gradient(var(--white), var(--white)), linear-gradient(135deg, #d4fc79 0%, #9605a1 100%);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Ajustes do emoji e rótulo dentro do cartão */
+.calculator__transport-emoji {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-s);
+}
+
+.calculator__transport-label {
+  font-weight: 600;
 }

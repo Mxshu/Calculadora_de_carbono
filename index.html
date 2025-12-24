@@ -9,9 +9,9 @@
   </head>
   <body>
     <header class="calculator__header">
-      <!-- Título principal com a 2 menor usando <small> -->
-      <h1 class="calculator__title">🍃 Calculadora de Emissão de CO<small>2</small></h1>
-      <p class="calculator__subtitle">Calcule as emissões estimadas de CO<small>2</small> para deslocamentos entre cidades.</p>
+      <!-- Título principal com o "2" em subescrito (CO₂) -->
+      <h1 class="calculator__title">🍃 Calculadora de Emissão de CO<sub>2</sub></h1>
+      <p class="calculator__subtitle">Calcule as emissões estimadas de CO<sub>2</sub> para deslocamentos entre cidades.</p>
     </header>
 
     <main class="calculator">
@@ -52,22 +52,34 @@
             <!-- Cada opção está envolta em um label para aumentar a área clicável (BEM: calculator__transport-option) -->
             <label for="transport-bicycle" class="calculator__transport-option">
               <input id="transport-bicycle" type="radio" name="transport" value="bicycle">
-              🚲 Bicicleta
+              <span class="calculator__transport-card">
+                <span class="calculator__transport-emoji">🚲</span>
+                <span class="calculator__transport-label">Bicicleta</span>
+              </span>
             </label>
 
             <label for="transport-car" class="calculator__transport-option">
               <input id="transport-car" type="radio" name="transport" value="car" checked>
-              🚗 Carro
+              <span class="calculator__transport-card">
+                <span class="calculator__transport-emoji">🚗</span>
+                <span class="calculator__transport-label">Carro</span>
+              </span>
             </label>
 
             <label for="transport-bus" class="calculator__transport-option">
               <input id="transport-bus" type="radio" name="transport" value="bus">
-              🚌 Ônibus
+              <span class="calculator__transport-card">
+                <span class="calculator__transport-emoji">🚌</span>
+                <span class="calculator__transport-label">Ônibus</span>
+              </span>
             </label>
 
             <label for="transport-truck" class="calculator__transport-option">
               <input id="transport-truck" type="radio" name="transport" value="truck">
-              🚚 Caminhão
+              <span class="calculator__transport-card">
+                <span class="calculator__transport-emoji">🚚</span>
+                <span class="calculator__transport-label">Caminhão</span>
+              </span>
             </label>
           </div>
         </fieldset>
