@@ -1,0 +1,425 @@
+/* ===========================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   =========================== */
+
+:root {
+  /* Eco-friendly color palette */
+  --primary: #10b981;
+  --secondary: #059669;
+  --accent: #34d399;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  /* Text and background colors */
+  --text: #112937;
+  --text-light: #6b7280;
+  --bg: #f0fdf4;
+  --white: #ffffff;
+
+  /* Spacing scale (0.5rem to 3rem) */
+  --spacing-s: 0.5rem;
+  --spacing-m: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 3rem;
+
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   BASE STYLES
+   =========================== */
+
+/* Universal reset: remove default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling with eco-gradient background */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #d4fc79 0%, #9605a1 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Container: centered layout with max-width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-m);
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+
+/* Hidden class: completely remove element from view */
+.hidden {
+  display: none !important;
+}
+
+/* Section title: large heading style */
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ===========================
+   HEADER STYLES
+   =========================== */
+
+.calculator__header {
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+}
+
+/* Main title with primary color and large font size */
+.calculator__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--spacing-m);
+}
+
+/* Small tag for the "2" in CO2 */
+.calculator__title small {
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
+/* Subtitle in gray, smaller font */
+.calculator__subtitle {
+  font-size: 1.125rem;
+  color: var(--text-light);
+}
+
+/* ===========================
+   MAIN FORM STYLING
+   =========================== */
+
+.calculator {
+  padding: var(--spacing-m);
+}
+
+/* Form container: white card with shadow and rounded corners */
+.calculator__form {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Form field group with margin between inputs */
+.calculator__field {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Label styling: bold, block display, margin below */
+.calculator__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-s);
+  color: var(--text);
+}
+
+/* Text/number input styling: full width, padding, border with focus state */
+.calculator__input {
+  width: 100%;
+  padding: var(--spacing-m);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input focus state: primary color border and subtle shadow */
+.calculator__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Helper text: smaller, gray, positioned below inputs */
+.calculator__help {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-s);
+}
+
+/* Checkbox styling */
+.calculator__checkbox {
+  margin-right: var(--spacing-s);
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--primary);
+}
+
+/* ===========================
+   TRANSPORT MODE GRID
+   =========================== */
+
+/* Transport fieldset styling */
+.calculator__transport {
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Legend styling for fieldset */
+.calculator__legend {
+  font-weight: 600;
+  color: var(--text);
+  padding: 0 var(--spacing-m);
+}
+
+/* Transport grid container: 4 columns on desktop, 2 on mobile */
+.calculator__transport-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-m);
+  margin-top: var(--spacing-m);
+}
+
+/* Transport option label as clickable card */
+.calculator__transport-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  background-color: var(--white);
+}
+
+/* Hover effect: lift with transform and shadow */
+.calculator__transport-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hide actual radio input */
+.calculator__transport-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Checked state: primary border, light primary background using adjacent sibling selector */
+.calculator__transport-option input[type="radio"]:checked + .calculator__transport-option,
+.calculator__transport-option input[type="radio"]:checked ~ .calculator__transport-option {
+  border-color: var(--primary);
+  border-width: 2px;
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* Ensure checked state works correctly */
+.calculator__transport-option input[type="radio"]:checked {
+  border-color: var(--primary);
+}
+
+/* Target label when radio is checked (using general sibling) */
+.calculator__transport-option input[type="radio"]:checked + label,
+input[type="radio"][name="transport"]:checked + .calculator__transport-option {
+  border-color: var(--primary);
+  background-color: rgba(16, 185, 129, 0.05);
+  border-width: 2px;
+}
+
+/* Emoji icon styling in transport options */
+.calculator__transport-option::before {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-s);
+}
+
+/* ===========================
+   BUTTON STYLING
+   =========================== */
+
+/* Actions container */
+.calculator__actions {
+  display: flex;
+  gap: var(--spacing-m);
+  margin-top: var(--spacing-2xl);
+}
+
+/* Submit button: full width, primary color, white text */
+.calculator__submit {
+  flex: 1;
+  padding: var(--spacing-m) var(--spacing-2xl);
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Button hover state: secondary color with lift effect */
+.calculator__submit:hover:not(:disabled) {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Button active (pressed) state */
+.calculator__submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Button disabled state: gray background, not-allowed cursor */
+.calculator__submit:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===========================
+   RESULTS SECTIONS
+   =========================== */
+
+/* Results section styling */
+.calculator__results,
+.calculator__comparison,
+.calculator__carbon-credite {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* ===========================
+   LOADING SPINNER
+   =========================== */
+
+/* Spinner animation class for loading states */
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===========================
+   FOOTER STYLES
+   =========================== */
+
+.calculator__footer {
+  background-color: var(--white);
+  border-top: 1px solid #e5e7eb;
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--text-light);
+  margin-top: var(--spacing-3xl);
+}
+
+.calculator__footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+/* Mobile styles (default above) */
+@media (max-width: 767px) {
+  /* Transport grid: 2 columns on mobile */
+  .calculator__transport-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Reduce padding on smaller screens */
+  .calculator__form {
+    padding: var(--spacing-lg);
+  }
+
+  .calculator__header {
+    padding: var(--spacing-lg);
+  }
+
+  /* Reduce title size on mobile */
+  .calculator__title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  /* Transport grid: 4 columns on desktop */
+  .calculator__transport-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Container padding on desktop */
+  .container {
+    padding: var(--spacing-lg) var(--spacing-2xl);
+  }
+
+  /* Increase form padding on desktop */
+  .calculator__form {
+    padding: var(--spacing-3xl);
+  }
+}
+
+/* ===========================
+   ACCESSIBILITY
+   =========================== */
+
+/* Visually hidden class for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible for keyboard navigation */
+.calculator__input:focus-visible,
+.calculator__submit:focus-visible,
+.calculator__transport-option:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
