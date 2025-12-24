@@ -3,100 +3,107 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>🍃 Calculadora de Emissão de CO<small>2</small></title>
+    <title>🍃 Calculadora de Emissão de CO2</title>
+    <!-- Link para o arquivo de estilos (responsivo) -->
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <!--A Header é a parte superior da página que apresenta o título e uma breve descrição do site. -->
-    <header>
-      <h1>🍃 Calculadora de Emissão de CO<small>2</small></h1>
-      <p>Calcule as emissões estimadas de CO<small>2</small> para deslocamentos entre cidades.</p>
+    <header class="calculator__header">
+      <!-- Título principal com a 2 menor usando <small> -->
+      <h1 class="calculator__title">🍃 Calculadora de Emissão de CO<small>2</small></h1>
+      <p class="calculator__subtitle">Calcule as emissões estimadas de CO<small>2</small> para deslocamentos entre cidades.</p>
     </header>
 
-    <!--A Main é a parte principal da página que contém o formulário e os resultados da calculadora. -->
-    <main>
-        <!--O form é o elemento que permite ao usuário inserir dados para calcular a emissão de CO2. -->
-      <form id="calculator-form" aria-labelledby="calc-title">
-        <!--O h2 é o título do formulário. -->
+    <main class="calculator">
+      <!-- Formulário principal da calculadora -->
+      <form id="calculator-form" class="calculator__form" aria-labelledby="calc-title">
         <h2 id="calc-title" class="visually-hidden">Formulário da Calculadora</h2>
 
-        <!--O div é o elemento que agrupa os campos de entrada do formulário. -->
-        <div>
-          <label for="origin">Origem</label>
-          <input id="origin" name="origin" list="cities-list" placeholder="Digite a cidade de origem" autocomplete="on">
+        <div class="calculator__field">
+          <label for="origin" class="calculator__label">Origem</label>
+          <!-- campo com datalist para autocomplete; opções preenchidas por JS -->
+          <input id="origin" name="origin" list="cities-list" class="calculator__input" placeholder="Digite a cidade de origem" autocomplete="on">
         </div>
 
-        <div>
-          <label for="destination">Destino</label>
-          <input id="destination" name="destination" list="cities-list" placeholder="Digite a cidade de destino" autocomplete="on">
+        <div class="calculator__field">
+          <label for="destination" class="calculator__label">Destino</label>
+          <input id="destination" name="destination" list="cities-list" class="calculator__input" placeholder="Digite a cidade de destino" autocomplete="on">
         </div>
 
-        <!--O datalist é o elemento que contém as opções de cidades para os campos de origem e destino. -->
-        <datalist id="cities-list">
-          <!-- Opções podem ser preenchidas dinamicamente por `js/routes-data.js` -->
-        </datalist>
+        <!-- Datalist vazio inicialmente; será populado por `js/routes-data.js` -->
+        <datalist id="cities-list"></datalist>
 
-        <div>
-          <label for="distance">Distância (km)</label>
-          <input id="distance" name="distance" type="number" readonly placeholder="Auto preenchida">
+        <div class="calculator__field">
+          <label for="distance" class="calculator__label">Distância (km)</label>
+          <!-- distância auto-preenchida; somente leitura por padrão -->
+          <input id="distance" name="distance" type="number" readonly class="calculator__input" placeholder="Auto preenchida">
+          <p class="calculator__help">A distância será preenchida automaticamente</p>
         </div>
 
-        <div>
-          <input id="manual-distance" name="manual-distance" type="checkbox">
-          <label for="manual-distance">Inserir distância manualmente</label>
+        <div class="calculator__field">
+          <input id="manual-distance" name="manual-distance" type="checkbox" class="calculator__checkbox">
+          <label for="manual-distance" class="calculator__label">Inserir distância manualmente</label>
         </div>
 
-        <!--O fieldset é o elemento que agrupa os campos de seleção do modo de transporte. -->
-        <fieldset>
-          <legend>Modo de transporte</legend>
-          <div class="transport-grid">
-            <label for="transport-bicycle">
-                <!--O input é o elemento que permite ao usuário selecionar o modo de transporte. -->
+        <fieldset class="calculator__transport" aria-label="Modo de transporte">
+          <legend class="calculator__legend">Modo de transporte</legend>
+          <div class="calculator__transport-grid transport-grid">
+            <!-- Cada opção está envolta em um label para aumentar a área clicável (BEM: calculator__transport-option) -->
+            <label for="transport-bicycle" class="calculator__transport-option">
               <input id="transport-bicycle" type="radio" name="transport" value="bicycle">
               🚲 Bicicleta
             </label>
 
-            <label for="transport-car">
+            <label for="transport-car" class="calculator__transport-option">
               <input id="transport-car" type="radio" name="transport" value="car" checked>
               🚗 Carro
             </label>
 
-            <label for="transport-bus">
+            <label for="transport-bus" class="calculator__transport-option">
               <input id="transport-bus" type="radio" name="transport" value="bus">
               🚌 Ônibus
             </label>
 
-            <label for="transport-truck">
+            <label for="transport-truck" class="calculator__transport-option">
               <input id="transport-truck" type="radio" name="transport" value="truck">
               🚚 Caminhão
             </label>
           </div>
         </fieldset>
 
-        <div>
-          <button type="submit">Calcular Emissão</button>
+        <div class="calculator__actions">
+          <button type="submit" class="calculator__submit">Calcular Emissão</button>
         </div>
       </form>
 
-      <!--A section é o elemento que contém os resultados da calculadora. -->
-      <section id="results" class="hidden" aria-live="polite"> <!-- O polite é usado para informar ao leitor de tela que o conteúdo pode mudar dinamicamente -->
+      <!-- Seções de resultados, inicialmente escondidas pela classe `hidden` -->
+      <section id="results" class="calculator__results hidden" aria-live="polite">
         <div id="results-content"></div>
       </section>
 
-      <section id="comparison" class="hidden"> <!--O hidden é a classe CSS que esconde o elemento. -->
+      <section id="comparison" class="calculator__comparison hidden">
         <div id="comparison-content"></div>
       </section>
 
-      <section id="carbon-credite" class="hidden">
+      <!-- Note: o id segue a especificação do usuário `carbon-credite` -->
+      <section id="carbon-credite" class="calculator__carbon-credite hidden">
         <div id="carbon-credits-content"></div>
       </section>
     </main>
 
-    <!--O Footer é a parte inferior da página que apresenta informações sobre o desenvolvedor e o projeto. -->
-    <footer>
+    <footer class="calculator__footer">
       <p>Desenvolvido por Brenda Góes para a DIO | Projeto GitHub Copilot</p>
     </footer>
 
-    <!--O Script é o elemento que carrega os arquivos JavaScript da calculadora. -->
+    <!--
+      Scripts JavaScript (ordem importante):
+      1. js/routes-data.js  -> carrega/fornece dados de rotas e cidades (popula o datalist)
+      2. js/config.js       -> contém configurações e constantes usadas pela calculadora
+      3. js/calculator.js   -> lógica de cálculo das emissões com base na distância e transporte
+      4. js/ui.js           -> manipulação da interface (mostrar/ocultar seções, preencher distância)
+      5. js/app.js          -> inicialização: conecta dados, liga eventos do formulário e inicializa a UI
+      Mantemos essa ordem para que dependências estejam disponíveis quando cada script rodar.
+    -->
     <script src="js/routes-data.js"></script>
     <script src="js/config.js"></script>
     <script src="js/calculator.js"></script>
