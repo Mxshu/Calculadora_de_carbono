@@ -45,6 +45,50 @@ document.addEventListener('DOMContentLoaded', function() {
   // Log de sucesso na inicialização
   console.log('✓ Calculadora inicializada!');
 
+  // Ajuste dinâmico do título para caber na largura do contêiner
+  function fitTitle() {
+    const el = document.querySelector('.calculator__title');
+    if (!el || !el.parentElement) return;
+    // Reset any previous transform
+    el.style.transform = 'none';
+    // Measure widths
+    const containerWidth = el.parentElement.clientWidth - 16; // small padding allowance
+    const titleWidth = el.scrollWidth;
+    if (titleWidth > containerWidth) {
+      const scale = containerWidth / titleWidth;
+      el.style.transform = `scale(${scale})`;
+    } else {
+      el.style.transform = 'none';
+    }
+  }
+
+  // Run immediately on load and on resize (no debounce) to avoid delay
+  fitTitle();
+  window.addEventListener('resize', fitTitle);
+  window.addEventListener('orientationchange', fitTitle);
+  // Also run after fonts load (if supported)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitTitle).catch(() => {});
+  } else {
+    // Fallback: run once after a short tick to ensure layout calculated
+    setTimeout(fitTitle, 0);
+  }
+
+  // Use ResizeObserver when available to react instantly to container size changes
+  if (typeof ResizeObserver !== 'undefined') {
+    const headerEl = document.querySelector('.calculator__header');
+    if (headerEl) {
+      try {
+        const ro = new ResizeObserver(() => {
+          fitTitle();
+        });
+        ro.observe(headerEl);
+      } catch (e) {
+        // ignore if observing fails
+      }
+    }
+  }
+
   /**
    * ===========================
    * FASE 2: MANIPULADOR DE SUBMISSÃO DO FORMULÁRIO

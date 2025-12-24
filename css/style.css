@@ -2,6 +2,9 @@
    PROPRIEDADES CUSTOMIZADAS CSS (VARIÁVEIS)
    =========================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+
 :root {
   /* Paleta de cores eco-friendly */
   --primary: #10b981;
@@ -74,7 +77,7 @@ body {
 /* Título da seção: estilo de cabeçalho grande */
 .section-title {
   font-size: 1.875rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary);
   margin-bottom: var(--spacing-lg);
 }
@@ -86,29 +89,59 @@ body {
 .calculator__header {
   background-color: var(--white);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-xl);
+  /* responsive padding so header breathes on all screens */
+  padding: clamp(1rem, 4vw, 2.5rem);
   margin-bottom: var(--spacing-2xl);
   border-radius: var(--radius-lg);
+  text-align: center;
 }
 
 /* Título principal com cor primária e tamanho de fonte grande */
 .calculator__title {
-  font-size: 2rem;
+  /* Fluid, responsive main title: scales between 2rem and 10rem for coherence */
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-family: 'Finger Paint', 'Cinzel Decorative', fantasy, cursive;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: var(--spacing-m);
+  text-align: center;
+  line-height: 1.1;
+  /* Keep the title on a single line */
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.calculator__title::after {
+  content: ' 🍃';
+  margin-left: 0.05em;
+  display: inline-block;
+  /* match the left leaf which is part of the H1 content */
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+/* Ensure the small subscript scales relative to the title */
+.calculator__title small {
+  font-size: 0.18em;
+  vertical-align: super;
 }
 
 /* Tag pequena para o "2" em CO2 */
 .calculator__title small {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   vertical-align: super;
 }
 
 /* Subtítulo em cinza, fonte menor */
 .calculator__subtitle {
-  font-size: 1.125rem;
+  /* Responsive subtitle: scales between 0.75rem and 1.5rem */
+  font-size: clamp(0.75rem, 2.5vw, 1.5rem);
   color: var(--text-light);
+  text-align: center;
 }
 
 /* ===========================
@@ -474,4 +507,441 @@ input[type="radio"][name="transport"]:checked + .calculator__transport-option {
 
 .calculator__transport-label {
   font-weight: 600;
+}
+
+/* ===========================
+   ANIMAÇÕES
+   =========================== */
+
+/* Animação de fade-in para seções aparecendo */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   SEÇÃO DE RESULTADOS
+   =========================== */
+
+/* Container principal de resultados */
+.results__container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título da seção de resultados */
+.results__title {
+  /* Responsive section title using same gradient */
+  font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4fc79 0%, #9605a1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Cartão individual de resultado */
+.results__card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Rótulo do cartão de resultado (menor e em maiúsculas) */
+.results__card-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: var(--spacing-m);
+}
+
+/* Ícone/emoji no cartão de resultado */
+.results__icon {
+  font-size: 2.5rem;
+  margin-right: var(--spacing-m);
+}
+
+/* Grupo de dados dentro do cartão */
+.results__data {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Valor grande e em negrito do resultado */
+.results__card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Conteúdo flexível do cartão */
+.results__card-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+}
+
+/* Cidades na rota */
+.results__city {
+  font-weight: 600;
+}
+
+/* Seta de rota */
+.results__arrow {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Modo de transporte */
+.results__mode-icon {
+  font-size: 2rem;
+  margin-right: var(--spacing-s);
+}
+
+.results__mode-label {
+  font-weight: 600;
+}
+
+/* Cartão especial de economia com destaque */
+.results__savings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-s);
+  padding-bottom: var(--spacing-s);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.results__savings-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.results__savings-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.results__savings-value {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.125rem;
+}
+
+/* ===========================
+   SEÇÃO DE COMPARAÇÃO
+   =========================== */
+
+/* Container principal de comparação */
+.comparison__container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título da comparação */
+.comparison__title {
+  font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4fc79 0%, #9605a1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Item individual de comparação */
+.comparison__item {
+  background-color: var(--white);
+  padding: var(--spacing-m);
+  margin-bottom: var(--spacing-m);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Item de comparação selecionado */
+.comparison__item--selected {
+  border-color: var(--primary);
+  background-color: rgba(16, 185, 129, 0.03);
+}
+
+/* Header do item de comparação */
+.comparison__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-s);
+}
+
+/* Informações do modo de transporte */
+.comparison__mode-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+/* Ícone do modo */
+.comparison__icon {
+  font-size: 1.5rem;
+}
+
+/* Rótulo do modo */
+.comparison__label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Badge de seleção */
+.comparison__badge {
+  display: inline-block;
+  height: 24px;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: var(--spacing-s);
+}
+
+/* Stats de emissão */
+.comparison__emission-stats {
+  text-align: right;
+}
+
+/* Emissão em kg */
+.comparison__emission {
+  display: block;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text);
+}
+
+/* Percentual vs carro */
+.comparison__percentage {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* Container da barra de progresso */
+.comparison__progress-container {
+  width: 100%;
+  height: 12px;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: var(--spacing-s);
+}
+
+/* Barra de progresso colorida */
+.comparison__progress-bar {
+  height: 100%;
+  border-radius: var(--radius);
+  transition: width 0.5s ease;
+  background-color: var(--primary);
+}
+
+/* Box de dica na seção de comparação */
+.comparison__tip {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--info);
+  padding: var(--spacing-m);
+  margin-top: var(--spacing-lg);
+  border-radius: var(--radius);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ===========================
+   SEÇÃO DE CRÉDITOS DE CARBONO
+   =========================== */
+
+/* Container principal de créditos */
+.carbon-credits__container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título de créditos */
+.carbon-credits__title {
+  font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4fc79 0%, #9605a1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Grid de cartões de créditos */
+.carbon-credits__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Cartão individual de crédito */
+.carbon-credits__card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+/* Rótulo do cartão de crédito */
+.carbon-credits__card-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Valor grande no cartão de crédito */
+.carbon-credits__card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-s);
+}
+
+/* Texto auxiliar no cartão */
+.carbon-credits__card-helper {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Range de preço */
+.carbon-credits__card-range {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-s);
+}
+
+/* Box informativo sobre créditos */
+.carbon-credits__info-box {
+  border: 2px dashed var(--info);
+  background-color: rgba(59, 130, 246, 0.05);
+  padding: var(--spacing-m);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Título do box informativo */
+.carbon-credits__info-title {
+  font-weight: 700;
+  color: var(--info);
+  margin-bottom: var(--spacing-s);
+  font-size: 1rem;
+}
+
+/* Texto do box informativo */
+.carbon-credits__info-text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: var(--spacing-s);
+}
+
+.carbon-credits__info-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Botão de compensação */
+.carbon-credits__button {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: var(--spacing-m) var(--spacing-lg);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carbon-credits__button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.carbon-credits__button:active {
+  transform: translateY(0);
+}
+
+/* ===========================
+   RESPONSIVE - MOBILE
+   =========================== */
+
+@media (max-width: 767px) {
+  /* Grid de créditos com 1 coluna em mobile */
+  .carbon-credits__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-m);
+  }
+
+  /* Reduzir tamanho do valor do resultado em mobile */
+  .results__card-value {
+    font-size: 1.25rem;
+  }
+
+  /* Reduzir tamanho do valor de crédito em mobile */
+  .carbon-credits__card-value {
+    font-size: 2rem;
+  }
+
+  /* Ajustar ícone em mobile */
+  .results__icon {
+    font-size: 2rem;
+    margin-right: var(--spacing-s);
+  }
+
+  /* Reduzir padding em mobile */
+  .results__card,
+  .comparison__item,
+  .carbon-credits__card {
+    padding: var(--spacing-m);
+  }
+
+  /* Ajustar header de comparação em mobile */
+  .comparison__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comparison__emission-stats {
+    text-align: left;
+    margin-top: var(--spacing-s);
+  }
+
+  /* Ajustar info box em mobile */
+  .carbon-credits__info-box {
+    padding: var(--spacing-m);
+  }
 }
